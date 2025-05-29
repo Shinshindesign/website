@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MovieR</title>
+    <style>
+    /* Body dan General */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font yang lebih modern */
+    margin: 0;
+    background-color: #f0f2f5; /* Abu-abu terang yang lebih lembut */
+    color: #333;
+}
+
+.container {
+    max-width: 1200px; /* Lebar maksimal konten */
+    margin: 0 auto; /* Tengah */
+    padding: 0 20px; /* Padding samping */
+}
+
+/* Header */
+.main-header {
+    background-color: #2c3e50; /* Warna gelap yang lebih dalam dari abu-abu */
+    padding: 30px 0; /* Padding vertikal */
+    text-align: center;
+}
+
+.main-header h1 {
+    color: #ecf0f1; /* Putih terang */
+    font-size: 3em; /* Ukuran lebih besar */
+    margin: 0;
+    letter-spacing: 2px; /* Spasi antar huruf */
+}
+
+/* Navigation */
+.main-nav {
+    background-color: #34495e; /* Sedikit lebih terang dari header */
+    padding: 2px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Bayangan lembut */
+}
+
+.main-nav ul {
+    list-style: none; /* Hapus bullet point */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Jadikan horizontal */
+    justify-content: center; /* Pusatkan menu */
+}
+
+.main-nav ul li {
+    position: relative;
+}
+
+.main-nav ul li a {
+    display: block;
+    padding: 10px 25px;
+    color: #ecf0f1; /* Putih terang */
+    text-decoration: none;
+    font-weight: 600; /* Sedikit tebal */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transisi halus */
+}
+
+.main-nav ul li a:hover {
+    background-color: #2980b9; /* Biru terang saat hover */
+    color: #fff;
+}
+
+/* Dropdown Menu (Contoh) */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #34495e;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-radius: 4px;
+}
+
+.dropdown-menu li a {
+    color: #ecf0f1;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #2980b9;
+}
+
+.has-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+
+/* Konten Utama (Card) */
+.main-content {
+    padding: 40px 0;
+    display: flex; /* Untuk menata kartu */
+    justify-content: center; /* Pusatkan kartu jika hanya satu */
+    flex-wrap: wrap; /* Agar responsif */
+    gap: 30px; /* Jarak antar kartu */
+}
+
+.movie-card {
+    background-color: #ffffff; /* Latar belakang putih */
+    border-radius: 10px; /* Sudut membulat */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Bayangan lebih jelas */
+    overflow: hidden; /* Penting untuk gambar */
+    width: 300px; /* Lebar kartu */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px); /* Sedikit naik saat hover */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Bayangan lebih kuat saat hover */
+}
+
+.movie-card img {
+    width: 100%;
+    height: 450px; /* Tinggi gambar film yang konsisten */
+    object-fit: cover; /* Pastikan gambar mengisi ruang tanpa distorsi */
+    display: block;
+}
+
+.movie-card h2 {
+    font-size: 1.5em;
+    color: #2c3e50; /* Warna judul kartu */
+    margin: 15px 0 10px;
+    padding: 0 15px;
+}
+
+/* Responsiveness dasar */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2em;
+    }
+    .main-nav ul {
+        flex-direction: column; /* Menu vertikal di layar kecil */
+        align-items: center;
+    }
+    .main-nav ul li a {
+        padding: 8px 20px;
+    }
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .movie-card {
+        width: 90%; /* Lebar kartu di layar kecil */
+    }
+}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #7d7d8b;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2f2047;
+            color: white;
+           
+            padding: 30px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 25px;
+        }
+        .film-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow:0 2px 10px rgba(116, 98, 219, 0.1);
+            width: 350px;
+            margin: 0px;
+            overflow: hidden;
+        }
+        .container-tiga-bagian{
+            display: flex;
+            width: : 100%;
+        }
+        .bagian-kiri{
+            width: 25%;
+            padding-right: 10px;
+        }
+        .bagian-tengah{
+            width: 50%;
+            text-align: center;
+        }
+        .bagian-kanan{
+            width: 25%;
+            padding: 10px;
+        }
+        .film-card img {
+            width: 100%;
+            height: auto;
+        }
+        .film-info {
+            padding: 15px;
+        }
+        .film-info h2 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+        .film-info p {
+            font-size: 1em;
+            color: #555;
+        }
+        .film-info button {
+            background-color: #070707e7;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .film-info button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>MovieR</h1>
+</header>
+
+<nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li class="has-dropdown">
+                    <a href="#">Aksi / Petualangan ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Interstellar</a></li>
+                        <li><a href="#">Jumanji: The Next Level</a></li>
+                        <li><a href="#">The Day After Tomorror</a></li>
+                        <li><a href="#">Godzilla vs Kong</a></li>
+                    </ul>
+                <li class="has-dropdown">
+                    <a href="#">Animasi ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Onward</a></li>
+                        <li><a href="#">Jumbo</a></li>
+                        <li><a href="#">Suzume</a></li>
+                    </ul>
+                </li>                
+                <li class="has-dropdown">
+                    <a href="#">Horror ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Agak Laen</a></li>
+                        <li><a href="#">Dark Nuns</a></li>
+                        <li><a href="#">Exhuma</a></li>
+                        <li><a href="#">IT</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#">Komedi ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Ngeri Ngeri Sedap</a></li>
+                        <li><a href="#">Cek Toko Sebelah 2</a></li>
+                        <li><a href="#">Mr.Bean's Holiday</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#">Musikal ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">7Dream()Scape</a></li>
+                        <li><a href="#">The Greatest Showman</a></li>
+                    </ul>
+                </li>
+                <li class="has-dropdown">
+                    <a href="#">Romance ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">20th Century Girl</a></li>
+                        <li><a href="#">Romeo+Juliet</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </li>
+                </ul>
+        </div>
+    </nav>
+<div class="container">
+ <!-- Film 1 -->
+ <div class="film-card">
+    <div class="film-info">
+        <h2>Jumanji: The Next Level</h2>
+        <img src="pictures/IMG-20250328-WA0013.jpg" alt="Poster film Jumanji: The Next Level">
+        <p>Genre: Aksi, Petualangan</p>
+        <p>Tahun: 2019</p>
+        <p>Rating: 4.2 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+        <div class="film-detail" style="display: none;">
+        <p>Sinopsis: Keempat sahabat kembali lagi, tetapi permainannya telah berubah. Saat memutuskan masuk lagi
+            ke Jumanji untuk menyelamatkan salah satu dari mereka, mereka menemukan hal yang tak seperti diduga.
+            Para pemain harus melaju ke wilayah-wilayah tersembunyi dan belum dijamah, dari gurun nan gersang ke
+            pegunungan bersalju, demi meloloskon diri dari permainan paling berbahaya di dunia.</p>
+        <p>Sutradara: Jake Kasdan</p>
+        <p>Pemeran: Dwayne Johsom (Dr. Smolder), Karen Gillian (Ruby), Kevin Hart (Moose), Awkwafina (Ming
+            Fleetfoot)</p>
+        <a href="https://youtu.be/rBxcF-r9Ibs?si=t1IhAJyQNeqUZ26C">Lihat Trailer</a>
+        <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 2 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>20th Century Girl</h2>
+        <img src="pictures/WhatsApp Image 2025-03-28 at 11.54.56_adfe2ef4.jpg" alt="">
+        <p>Genre: Drama, Romantis</p>
+        <p>Tahun: 2022</p>
+        <p>Rating: 4.8 ⭐⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+                <p>Sinopsis: Film "20th Century Girl" mengisahkan tentang Na Bo-ra, seorang siswi SMA berusia 17 tahun pada tahun 1999, yang diminta sahabatnya, Yeon-doo, untuk mengawasi Baek Hyun-jin, pria yang disukai Yeon-doo, saat ia menjalani operasi jantung di Amerika Serikat. Saat Bo-ra menjalankan tugasnya, ia justru terlibat dalam kisah cinta segitiga dengan Hyun-jin dan sahabatnya, Poong Woon-ho. Film ini menggambarkan manis pahitnya cinta pertama, persahabatan, dan kenangan masa muda, serta dampaknya pada kehidupan di masa depan.</p>
+                <p>Sutradara: Bang Woo-ri</p>
+                <p>Pemeran: Byun Woo-soek (Poong Woon-ho), Kim Yoo-jung (Bo-ra), Roh Yoon Soe (Kim Yeon-du), park Jung-woo(Baek Hyun-jin)</p>
+                <a href="https://youtu.be/9E9zuPbF2dg?si=4mXs5O9_t2bKmsSD">Lihat Trailer</a>
+        <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 3 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>Agak Laen</h2>
+        <img src="Pictures/IMG-20250328-WA0012.jpg" alt="">
+        <p>Genre: Horor, Comedy</p>
+        <p>Tahun: 2024</p>
+        <p>Rating: 4.4 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+        <div class="film-detail" style="display: none;">
+            <p>Sinopsis: Bercerita tentang empat sahabat yang mengelola rumah hantu di pasar malam. Namun, usaha mereka tidak berjalan dengan lancar. Mereka mencoba berbagai cara untuk menakuti pengunjung, tetapi malah memakan korban jiwa.</p>
+            <p>Sutradara: Muhadkly Acho</p>
+            <p>Pemeran: Indra Jegel (Jegel), Boris Bokir (Boris), Oki Rengga, Bene Dion (Bane)</p>
+            <a href="https://youtu.be/y7tZL3zjE_c?si=YUY0uiVSmQf1vecw">Lihat Trailer</a>
+        <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 4 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>Onward</h2>
+        <img src="Pictures/IMG-20250328-WA0014.jpg" alt="">
+        <p>Genre: Petualangan</p>
+        <p>Tahun: 2020</p>
+        <p>Rating: 4.5 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+        <div class="film-detail" style="display: none;">
+            <p>Sinopsis: Onward menceritakan petualangan Ian dan Barley Lightfoot bersaudara menghidupkan kembali sisa-sisa keajaiban magis yang habis dimakan waktu dan perkembangan teknologi. petualangan dimulai ketika Ian berulang tahun ke-16 dan mendapatkan sebuah hadiah tongkat ajaib sang ayah.</p>
+            <p>Sutradara: Dan Scanlon</p>
+            <p>Pemeran: Tom Holland (Ian Lightfoot), Chris Pratt (Barley Lightfoot), Octavia Spencer (Die Manticore), Mel Rodriguez (Colt Bronto)</p>
+            <a href="https://youtu.be/gn5QmllRCn4?si=viVRksZylEisW7ma">Lihat Trailer</a>
+        <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 5 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>Ngeri Ngeri Sedap</h2>
+        <img src="Pictures/WhatsApp Image 2025-04-11 at 20.59.17_a69e78aa.jpg" alt="">
+        <p>Genre: Komedi, Drama</p>
+        <p>Tahun: 2022</p>
+        <p>Rating: 4.5 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+            <p>Sinopsis: Film "Ngeri-Ngeri Sedap" berkisah tentang sepasang suami istri Batak, Pak Domu dan Mak Domu, yang rindu ketiga anak laki-laki mereka yang merantau dan jarang pulang. Mereka hanya tinggal dengan anak kedua mereka, Sarma.
+                    Untuk membuat ketiga anak lelakinya pulang kampung menghadiri acara adat, Pak Domu dan Mak Domu berpura-pura bertengkar hebat dan ingin bercerai. Kabar ini sampai ke telinga Domu, Gabe, dan Sahat yang langsung memutuskan untuk pulang demi mencegah perceraian orang tua mereka
+                    Namun, sesampainya di rumah, mereka terkejut mengetahui bahwa pertengkaran itu hanya sandiwara. Konflik pun tak terhindarkan antara orang tua yang ingin anak-anaknya mengikuti tradisi dan anak-anak yang memiliki pilihan hidup masing-masing. </p>
+            <p>Sutradara: Bene Dion</p>
+            <p>Pemeran: Arswendy Bening Swara (Pak Domu), Tika Panggabean (Marlina), Gita Bhebhita (Sarma), Indra Jegel (Sahat), Lolox (Gabe), Boris Bokir (Domu)</p>
+            <a href="https://youtu.be/gU_PqIRsFLk?si=k0e6MPPK0seR449-">Lihat Trailer</a>
+        <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 6 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>Dark Nuns</h2>
+        <img src="Pictures/IMG-20250328-WA0015.jpg" alt="">
+        <p>Genre: Horor, Misteri</p>
+        <p>Tahun: 2025</p>
+        <p>Rating: 4.0 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+                <p>Sinopsis: Suster Junia dari Orde Pembebasan dikenal sebagai biarawati yang memiliki kemampuan eksorsisme yang manjur. Meskipun, murid dari Pastor Kim tersebut memiliki caranya sendiri dalam mengusir roh jahat dan demon yang merasuki seseorang. Hingga suatu kali, Suster Junia mendapati kasus kesurupan yang terjadi pada seorang remaja laki-laki bernama Hee-joon. Ia kerap kerasukan tapi tak ada rohaniawan yang sanggup menanganinya.</p>
+                <p>Sutradara: Kwon Hyeok-jae</p>
+                <p>Pemeran: Song Hye-kyo (Suster Junia), Moon Woo-jin (Hee-joon), Lee Jin-wook (Pator Paulo), Jeon Yeo-bin (Suster Michaela)</p>
+                <a href="https://youtu.be/xAdUdi1JJ4w?si=EaTtiVvYimVtT_cf">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 7 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>Interstellar</h2>
+        <img src="Pictures/IMG-20250328-WA0016.jpg" alt="">
+        <p>Genre: Fiksi ilmiah</p>
+        <p>Tahun: 2014</p>
+        <p>Rating: 4.8 ⭐⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+                <p>Sinopsis: Sebuah tim penjelajah antar galaksi harus melewati lubang cacing dan terjebak di dimensi waktu ruang angkasa dalam upya untuk menjamin kelangsungan hidup umat manusia di Bumi.</p>
+                <p>Sutradara: Christoper Nolan</p>
+                <p>Pemeran: Matthew McConaughey (Cooper), Jessica Chastain (Murphy Cooper), Timothee Chalamet (Tom), Michael Caine (Professor Brand)</p>
+                <a href="https://youtu.be/zSWdZVtXT7E?si=WlpxXWuncqPMkq4C">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+ <!-- Film 8 -->
+ <div class="film-card">
+    <div class="film-info">
+        <h2>Suzume</h2>
+        <img src="Pictures/WhatsApp Image 2025-04-12 at 07.49.05_b9e352fb.jpg" alt="">
+        <p>Genre: Petualangan, Anime</p>
+        <p>Tahun: 2022</p>
+        <p>Rating: 4.8 ⭐⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+                <p>Sinopsis: Suzume Iwato, seorang siswi SMA berusia 17 tahun yang tinggal di kota sepi di Kyushu, bertemu dengan seorang pemuda misterius bernama Souta Munakata yang sedang mencari "pintu". Tertarik, Suzume mengikutinya ke reruntuhan dan menemukan sebuah pintu aneh. Tanpa sadar, ia membukanya, memicu kemunculan pintu-pintu serupa di berbagai tempat terbengkalai di Jepang. Dari pintu-pintu itu keluar "cacing" raksasa yang menyebabkan bencana.
+                    Souta menjelaskan bahwa ia adalah seorang "Penutup Pintu" yang bertugas mengunci pintu-pintu ini. Namun, seekor kucing misterius bernama Daijin muncul dan mengubah Souta menjadi kursi anak kecil berkaki tiga. Terpaksa, Suzume memulai perjalanan bersama Souta (dalam wujud kursi) melintasi Jepang untuk menutup semua pintu dan mengembalikan Souta ke bentuk semula.
+                    Dalam perjalanan mereka, Suzume bertemu berbagai orang dan menghadapi tantangan. Ia juga mulai memahami misteri di balik pintu-pintu tersebut, yang ternyata terhubung dengan trauma masa lalunya akibat gempa bumi dan kehilangan ibunya. Perjalanan ini menjadi petualangan untuk menyelamatkan Jepang sekaligus perjalanan penyembuhan emosional bagi Suzume. </p>
+                <p>Sutradara: Makoto Shinka</p>
+                <p>Pemeran: Nanoka Hara (Suzume Iwato), Hokuto Matsumura (Souta Matsumura), Ryunosuke Kamiki (Tomoyama Serizawa)</p>
+                <a href="https://youtu.be/5pTcio2hTSw?si=ZPqRf1r12r8ruTa5">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+ <!-- Film 9 -->
+ <div class="film-card">
+    <div class="film-info">
+        <h2>IT</h2>
+        <img src="Pictures/WhatsApp Image 2025-04-12 at 08.00.05_b780cff2.jpg" alt="">
+        <p>Genre: Horor</p>
+        <p>Tahun: 2017</p>
+        <p>Rating: 4.5 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+                <p>Sinopsis: "IT" menceritakan teror yang menghantui kota Derry melalui sesosok badut jahat dan mengerikan bernama Pennywise. Pennywise muncul setiap 27 tahun sekali untuk memangsa anak-anak, memanfaatkan ketakutan terbesar mereka untuk meneror dan membunuh. Ketika sejumlah anak menghilang secara misterius di musim panas tahun 1988, sekelompok anak-anak buangan yang menyebut diri mereka "The Losers' Club" bersatu untuk menghadapi teror yang menghantui kota mereka dan berusaha mengalahkan Pennywise. Mereka harus mengatasi ketakutan pribadi mereka untuk melawan entitas jahat yang mengancam nyawa mereka </p>
+                <p>Sutradara: Andy Muschietti</p>
+                <p>Pemeran: Jaeden Martell (SBill Denbrough), Bill Skarsgard (Pennywise), Jeremy Ray Taylor (Ben Hanscom), Sophia Lillis (Beverly Marsh), Finn Wolfhard (Richie Tozier) </p>
+                <a href="https://youtu.be/xKJmEC5ieOk?si=2IQ4XKbjlv3PG3BS">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+ <!-- Film 10 -->
+ <div class="film-card">
+    <div class="film-info">
+        <h2>7Dream()Scape</h2>
+        <img src="Pictures/IMG-20250328-WA0017.jpg" alt="">
+        <p>Genre: Entertainment</p>
+        <p>Tahun: 2024</p>
+        <p>Rating: 4.7 ⭐⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+                <p>Sinopsis: NCT DREAM Mystery Lab: DREAM()SCAPE mengajak penonton menjelajahi Mytery Lab, sebuah laboratorium tempat rahasia pertumbuhan dan mimpi-mimpi besar diungkap. Film ini menampilkan aksi panggung spektakuler NCT Dream dari Gocheok Sky Dome, Seoul.</p>
+                <p>Sutradara: SM Entertainment</p>
+                <p>Pemeran: Lee Mark, Huang Renjun, Lee Jeno, lee Haechan, Na Jaemin, Zhong Chenle, Park Jisung</p>
+                <a href="https://youtu.be/xI3GmPokXt8?si=P6vpc70j12KwBID4">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 11 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>Romeo+Juliet</h2>
+        <img src="Pictures/IMG-20250328-WA0018.jpg" alt="">
+        <p>Genre: Roman, Drama</p>
+        <p>Tahun: 1996</p>
+        <p>Rating: 4.0 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+                <p>Sinopsis: Sebuah drama percintaan yang didasarkan dari kisah terkenal Shakespeare, yang diperbarui lebih modern dan mempertahankan dialog aslinya, yang digambarkan sebagai pertikaian antar kerajaan bisnis.</p>
+                <p>Sutradara: Baz Luhrmann</p>
+                <p>Pemeran: Leonardo Dicaprio (Romeo), Claire Danes (Julia), John Leguizamo (Tybalt)</p>
+                <a href="https://youtu.be/8VOAxzgq42A?si=rw07bi1wkJgYxqaZ">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 12 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>The Greatest Showman</h2>
+        <img src="Pictures/WhatsApp Image 2025-04-11 at 20.59.15_0c1dc1ed.jpg" alt="">
+        <p>Genre: Musikal, Drama</p>
+        <p>Tahun: 2017</p>
+        <p>Rating: 4.5 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+                <p>Sinopsis: The Greatest Showman mengisahkan P.T. Barnum, dari pria miskin menjadi pendiri sirkus terkenal Barnum & Bailey. Ia mengumpulkan orang-orang unik untuk pertunjukannya, menghadapi kritik dan prasangka. Film ini juga menyoroti hubungan cinta beda kelas dan ras di tengah gemerlap dunia sirkus. Barnum mengejar pengakuan dari kalangan atas, yang justru mengancam hubungannya dengan orang-orang terdekatnya.</p>
+                <p>Sutradara: Michael Gracey</p>
+                <p>Pemeran: Hugh Jackman (P.T Barnum), Zac Efron (Phillip Carlylr), Zendaya (Anne Wheeler), Michelle William (Charity Barnum)</p>
+                <a href="https://youtu.be/EodWwczRIe4?si=oqLOkUX0SO8xJT-1">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 13 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>Jumbo</h2>
+        <img src="Pictures/WhatsApp Image 2025-04-11 at 20.59.15_59298412.jpg" alt="">
+        <p>Genre: Petualangan, Animasi</p>
+        <p>Tahun: 2025</p>
+        <p>Rating: 4.8 ⭐⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+                <p>Sinopsis: Don, seorang anak laki - laki yang berusaha membuat pertunjukan buku dongeng peninggalan Ayah dan Ibunya. Sayangnya, ada yang mengejek dan meremehkan mimpi Don. Termasuk salah satu temannya, Atta, yang mencuri buku dongeng Don. Untungnya, Don selalu punya Oma dan sahabatnya, Nurman dan Mae yang selalu ada. Mereka pun bertemu dengan Meri, seorang anak perempuan dari dunia lain yang berusaha untuk mencari kedua orang tuanya. Tak sedikit hambatan yang datang. Akan kah mereka berhasil mencapai tujuannya masing - masing?</p>
+                <p>Sutradara: Ryan Adriandhy</p>
+                <p>Pemeran: Prince Poetiray (Don), Yusuf Ozkan (Nurman), Graciella Abigail (Mae), Quinn Salman (Meri), Bunga Citra Lestari (Ibu Don), Angga Yunanda (Acil), Muhammad Adhiyat (Atta)</p>
+                <a href="https://youtu.be/YW3sQ16oksY?si=mh5ONlpUAQTqIPTA">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 14 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>Godzilla vs Kong</h2>
+        <img src="Pictures/WhatsApp Image 2025-04-12 at 12.48.27_74ca172c.jpg" alt="">
+        <p>Genre: laga, Fiksi Ilmiah</p>
+        <p>Tahun: 2021</p>
+        <p>Rating: 4.2 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+            <p>Sinopsis: Godzilla vs. Kong mempertemukan dua Titan terkuat. Kong, dipindahkan dari Skull Island untuk mencari sumber energi di Hollow Earth oleh Apex Cybernetics yang berharap menggunakannya melawan Godzilla yang tiba-tiba agresif. Di tengah perjalanan, keduanya bentrok di laut. Sementara itu, sebuah tim mencurigai Apex dan menemukan rencana jahat mereka: Mechagodzilla, monster mekanik dikendalikan sisa otak King Ghidorah. Pertarungan puncak terjadi di Hong Kong, memaksa Godzilla dan Kong untuk bersekutu melawan Mechagodzilla. Setelah menang, Godzilla kembali ke laut dan Kong ke Hollow Earth, menciptakan keseimbangan baru.</p>
+            <p>Sutradara: Adam Wingard</p>
+            <p>Pemeran: Alexander Skarsgard (Dr. Nathan Lind), Millie Bobby Brown (Madison Russell), Rebecca Hall (Dr. Ilene Andrews), Kaylee Hottle (Jia), Brian Tyree Henry (Bernie Hayes), Shun Oguri (Ren Serizawa)</p>
+            <a href="https://youtu.be/odM92ap8_c0?si=e6wTTqBxetKNsfi9">Lihat Trailer</a>
+        <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 15 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>The Day After Tomorrow</h2>
+        <img src="Pictures/WhatsApp Image 2025-04-12 at 13.26.05_8a64ec40.jpg" alt="">
+        <p>Genre: Fiksi Ilmiah, Aksi</p>
+        <p>Tahun: 2004</p>
+        <p>Rating: 4.5 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+                <p>Sinopsis: Film bencana fiksi ilmiah ini menggambarkan dampak katastropik dari perubahan iklim ekstrem yang memicu serangkaian bencana alam dahsyat, termasuk badai super yang menyebabkan pendinginan global secara tiba-tiba dan mengarah pada zaman es baru. Seorang ahli paleoklimatologi, Jack Hall, berusaha menyelamatkan putranya, Sam, yang terjebak di New York City yang membeku.</p>
+                <p>Sutradara: Roland Emmerich</p>
+                <p>Pemeran: Dennis Quaid (Professor Jack Hall), Jake Gyllenhaal (Sam Hall), Emmy Rossum (Laura Chapman), Sela Word (Dr. Lucy Hall), Ian Holm (Terry Rapson)</p>
+                <a href="https://youtu.be/Ku_IseK3xTc?si=KDjtypJHpnK6w49h">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 16 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>Exhuma</h2>
+        <img src="Pictures/WhatsApp Image 2025-05-03 at 19.47.17_79cfcb78.jpg" alt="">
+        <p>Genre: Horor, Misteri</p>
+        <p>Tahun: 2024</p>
+        <p>Rating: 4.5 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">
+                <p>Sinopsis: Sinopsis film *Exhuma* (2024) berkisah tentang serangkaian kejadian supranatural aneh yang menimpa sebuah keluarga kaya di Los Angeles. Mereka kemudian menghubungi dua dukun muda terkenal, Hwa-rim (Kim Go-eun) dan Bong-gil (Lee Do-hyun), untuk membantu mengatasi masalah tersebut.
+
+                    Setelah melakukan penyelidikan, Hwa-rim menyadari bahwa kejadian-kejadian ini terkait dengan arwah leluhur keluarga tersebut. Ia kemudian meminta bantuan dari seorang ahli Feng Shui terkemuka bernama Sang-deok (Choi Min-sik) dan seorang petugas pemakaman bernama Yeong-geun (Yoo Hae-jin).
+                    
+                    Bersama-sama, mereka melacak keberadaan makam leluhur keluarga itu di sebuah desa terpencil di Korea Selatan. Mereka memutuskan untuk menggali kuburan tersebut dengan harapan dapat menghentikan teror yang menghantui keluarga kaya itu. Namun, tanpa disadari, tindakan mereka justru melepaskan kekuatan jahat yang terpendam di bawah makam tersebut, membawa mereka pada serangkaian peristiwa yang jauh lebih mengerikan dan melibatkan misteri masa lalu yang kelam, termasuk masa pendudukan Jepang di Korea.</p>
+                <p>Sutradara: Jang Jae-hyun</p>
+                <p>Pemeran: Kim Go-eun (Hwa-rim), Lee Do-hyun (Bong-gil), Choi Min-sik (Sang-deok), Yoo Hee-jin (Yeong-geun)</p>
+                <a href="https://youtu.be/xQ2mH3Jp15E?si=j8qWO86lvCUVaQV0">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+
+<!-- Film 17 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>Cek Toko Sebelah 2</h2>
+        <img src="Pictures/WhatsApp Image 2025-04-13 at 08.47.29_b63ca0a6.jpg" alt="">
+        <p>Genre: Komedi, Drama</p>
+        <p>Tahun: 2022</p>
+        <p>Rating: 4.7 ⭐⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">              
+                <p>Sinopsis: "Cek Toko Sebelah 2" melanjutkan kisah keluarga Koh Afuk setelah toko kelontongnya tutup, fokus pada permasalahan kedua anaknya. Erwin (Ernest Prakarsa) ingin melamar kekasihnya, Natalie, tapi terhalang restu keras dari ibu Natalie yang punya trauma masa lalu. Sementara itu, Yohan (Dion Wiyoko) dan istrinya, Ayu, menghadapi tekanan dari Koh Afuk yang sangat ingin segera punya cucu, meskipun mereka merasa belum siap. Film ini menyajikan drama keluarga yang realistis dengan sentuhan komedi, mengeksplorasi isu restu orang tua dan ekspektasi keluarga.</p>
+                <p>Sutradara: Ernest Prakarsa</p>
+                <p>Pemeran: Ernest Prakarsa (Erwin), Dion Wiyoko (Yohan), Chew Kin Wah (Koh Afuk), Adinia Wirasti (Ayu), Laura Basuki (Natalie), Maya Hasan (Ibu Natalie)</p>
+                <a href="https://youtu.be/gU_PqIRsFLk?si=k0e6MPPK0seR449-">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+<!-- Film 18 -->
+<div class="film-card">
+    <div class="film-info">
+        <h2>Cek Toko Sebelah 2</h2>
+        <img src="Pictures/WhatsApp Image 2025-04-13 at 08.47.29_b63ca0a6.jpg" alt="">
+        <p>Genre: Komedi, Petualangan</p>
+        <p>Tahun: 2007</p>
+        <p>Rating: 4.2 ⭐⭐⭐⭐</p>
+        <button onclick="tampilkanInfo(this)">Pelajari lebih lanjut</button>
+            <div class="film-detail" style="display: none;">              
+                <p>Sinopsis: Mr. Bean memenangkan liburan ke Cannes, Prancis, namun perjalanannya berubah jadi petualangan kacau. Ia tak sengaja memisahkan seorang anak, Stepan, dari ayahnya, dan kini harus membawanya kembali. Melintasi Prancis, Bean dan Stepan terlibat dalam serangkaian kesalahpahaman lucu dan kejadian absurd, bahkan tanpa sengaja menjadi bagian dari film yang sedang tayang perdana di Festival Film Cannes. Film ini adalah komedi fisik murni yang menampilkan kekacauan khas Mr. Bean.</p>
+                <p>Sutradara: Steve Bendelack</p>
+                <p>Pemeran: Rowan Atkinson (Mr.Bean), Max Baldry (Stepan Dachevsky), Emma de Caunes (Sabine), Willem Dafoe (Carson Clay)</p>
+                <a href="https://youtu.be/gU_PqIRsFLk?si=k0e6MPPK0seR449-">Lihat Trailer</a>
+            <button onclick="sembunyikanDetail(this)">Tutup</button>
+    </div>
+</div>
+</div>
+<script>
+    function tampilkanInfo(button) {
+        const filmDetail = button.nextElementSibling;
+        if (filmDetail.style.display === "none") {
+            filmDetail.style.display = "block";
+        } else {
+            filmDetail.style.display = "none";
+        }
+    }
+
+    function sembunyikanDetail(button) {
+        const filmDetail = button.parentElement;
+        filmDetail.style.display = "none";
+    }
+    // JavaScript sederhana untuk dropdown menu (opsional)
+        document.querySelectorAll('.has-dropdown').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                item.querySelector('.dropdown-menu').style.display = 'block';
+            });
+            item.addEventListener('mouseout', () => {
+                item.querySelector('.dropdown-menu').style.display = 'none';
+            });
+        });
+
+        // JavaScript sederhana untuk tab (opsional)
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                // Logika untuk menampilkan/menyembunyikan konten tab
+                // Untuk contoh ini, hanya tab LATEST yang ada kontennya.
+            });
+        });
+    </script>
+</body>
+</html>
